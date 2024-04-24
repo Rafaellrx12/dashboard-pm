@@ -10,10 +10,9 @@ posto_graduacao = np.random.choice(['Soldado', 'Cabo', 'Sargento', 'Subtenente',
 regime = np.random.choice(['Ativa', 'Reserva', 'Reforma', 'Excluído'], n_linhas)
 comportamento = np.random.choice(['Bom', 'Regular', 'Ruim'], n_linhas)
 entidade = np.random.choice(['Unidade', 'Batalhão'], n_linhas)
-local_do_fato = np.random.choice([ 'Rua X', 'Avenida Y', 'Praça Z'], n_linhas)
+local_do_fato = np.random.choice(['Rua X', 'Avenida Y', 'Praça Z'], n_linhas)
 registro_desvio = np.random.choice(['Sim', 'Não'], n_linhas)
 registro_criminal = np.random.choice(['Sim', 'Não'], n_linhas)
-
 data_registro = pd.date_range(start='2020-01-01', end='2022-12-31', periods=n_linhas)
 sexo = np.random.choice(['Masculino', 'Feminino'], n_linhas)
 
@@ -33,12 +32,10 @@ df = pd.DataFrame({
 
 df.to_excel('dados_pm.xlsx', index=False)
 
-
 df = pd.read_excel("dados_pm.xlsx");
 
 
 st.set_page_config(layout="wide");
-
 
 ano = st.sidebar.selectbox("Ano", df["Data Registro"].dt.year.unique());
 df_filtrado = df[df["Data Registro"].dt.year == ano];
